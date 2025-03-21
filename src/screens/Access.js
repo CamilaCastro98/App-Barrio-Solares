@@ -30,7 +30,7 @@ const Access = () => {
     <>
     <View style={styles.header}>
     <Image 
-      source={require('../../assets/logo.jpeg')} 
+      source={require('../../assets/logo.png')} 
       style={{ width: 100, height: 100 }} 
       resizeMode="contain"
     />
