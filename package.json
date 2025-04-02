@@ -20,6 +20,7 @@
     "react-native": "0.76.7",
     "react-native-maps": "^1.20.1",
     "react-native-paper": "^5.13.1",
+    "react-native-qrcode-svg": "^6.3.15",
     "tailwind-react-native-classnames": "^1.5.1",
     "yup": "^1.6.1"
   },
