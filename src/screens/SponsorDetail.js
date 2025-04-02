@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image} from 'react-native';
+import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 import { Provider } from 'react-native-paper';
 
 const SponsorDetail = () => {
@@ -16,8 +17,24 @@ const SponsorDetail = () => {
 
       {/* Contenido principal */}
       <View style={styles.container}>
-        {/* Ubicación */}
-        <Text style={styles.location}>📍 Ubicación: Av. Siempre Viva 123</Text>
+        <Text style={styles.locationTitle}>📍 Ubicación</Text>
+
+        {/* Google Maps */}
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: -34.6037, // Latitud ficticia
+            longitude: -58.3816, // Longitud ficticia
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          }}
+        >
+          <Marker
+            coordinate={{ latitude: -34.6037, longitude: -58.3816 }}
+            title="Av. Siempre Viva 123"
+            description="Ubicación del patrocinador"
+          />
+        </MapView>
 
         {/* Botón: Beneficios Exclusivos */}
         <Button 
@@ -25,7 +42,6 @@ const SponsorDetail = () => {
           onPress={() => console.log("Ver beneficios exclusivos")} 
         />
 
-        {/* Espacio entre botones */}
         <View style={styles.spacer} />
 
         {/* Botón: Horarios de Atención */}
@@ -57,22 +73,28 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center', // Centra el contenido verticalmente
-    width: '100%', // Ocupar todo el ancho de la pantalla
+    justifyContent: 'center',
+    width: '100%',
   },
-  footer: {
-    position: 'absolute', // Lo fija en la parte inferior
-    bottom: 0, // Lo deja pegado abajo
-    width: '100%', // Ocupar todo el ancho
-    padding: 16, // Espaciado interno
-    backgroundColor: 'orange',
-    alignItems: 'center', // Centra el botón
+  map: {
+    width: '90%',
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 20,
   },
-  location: {
+  locationTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
     textAlign: 'center',
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    padding: 16,
+    backgroundColor: 'orange',
+    alignItems: 'center',
   },
   spacer: {
     height: 20,
