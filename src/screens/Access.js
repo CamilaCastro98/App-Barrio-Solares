@@ -40,6 +40,7 @@ const Access = () => {
         <Formik
           initialValues={{ email: '', password: '', dni: '' }}
           validationSchema={Yup.object({
+            
             dni: Yup.string().min(6, 'Mínimo 6 caracteres').required('Requerido'),
             user: Yup.string().nullable(),
             name: Yup.string().nullable(),
